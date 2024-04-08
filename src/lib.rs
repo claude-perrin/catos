@@ -12,9 +12,11 @@ use x86_64::instructions::port::Port;
 pub mod serial;
 pub mod vga_buffer;
 pub mod interrupts;
+pub mod gdt;
 
 
 pub fn init() {
+    gdt::init();
     interrupts::init_idt();
 }
 
