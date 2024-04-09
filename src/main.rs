@@ -35,11 +35,11 @@ pub extern "C" fn _start() -> ! {
     }
     stack_overflow();
 
+    println!("It did not crash ");
 
     #[cfg(test)]
     test_main();
 
-    println!("It is alive!");
     loop {}
 }
 
