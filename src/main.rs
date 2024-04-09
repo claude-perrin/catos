@@ -13,7 +13,7 @@ use catos::serial_println;
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    catos::hlt_loop();
 }
 
 #[cfg(test)]
@@ -28,19 +28,20 @@ fn panic(info: &PanicInfo) -> ! {
 pub extern "C" fn _start() -> ! {
     println!("Hello World {}", "!");
     catos::init();
-    x86_64::instructions::interrupts::int3();
+    // x86_64::instructions::interrupts::int3();
 
-    fn stack_overflow(){
-        stack_overflow();
-    }
-    stack_overflow();
+    // fn stack_overflow(){
+    //     stack_overflow();
+    // }
+    // stack_overflow();
 
     println!("It did not crash ");
 
     #[cfg(test)]
     test_main();
 
-    loop {}
+    catos::hlt_loop();
+
 }
 
 

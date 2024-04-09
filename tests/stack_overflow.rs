@@ -22,7 +22,7 @@ lazy_static! {
 extern "x86-interrupt" fn test_double_fault_handler(_stack_frame: InterruptStackFrame, _error_code:u64) -> !{
     serial_print!("[ok]");
     exit_qemu(QemuExitCode::Success);
-    loop {}
+    catos::hlt_loop();;
 }
 
 pub fn init_test_idt() {

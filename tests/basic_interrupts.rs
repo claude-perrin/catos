@@ -11,7 +11,7 @@ use core::panic::PanicInfo;
 pub extern "C" fn _start() -> ! {
     init();
     test_main();
-    loop {}
+    catos::hlt_loop();
 }
 
 #[panic_handler]
